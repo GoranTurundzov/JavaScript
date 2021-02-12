@@ -1,0 +1,19 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#balance{
+    width: 35%;
+    height: 40px;
+    border: solid green 2px;
+    color: green;
+    background-color: orange;
+}
+textarea {
+    width: 40%;
+    height: 100px;
+    text-transform: capitalize;
+    text-align: center;
+}

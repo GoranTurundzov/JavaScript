@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domasno01</title>
+</head>
+<body>
+    <fieldset>
+        <legend> Ostatok</legend>
+    <form>
+        <input type="text" id="remain1"><br/>
+        <input type="text" id="remain2">
+        <button type="button" onclick="left()">REMAIN</button>
+    </form>
+    <div id="resRemain"></div>
+    </fieldset>
+    <fieldset>
+        <legend>Zivotni</legend>
+        Chicken: <input type="text" id="chickens"> <br/>
+        Cow : <input type="text" id="cows"> <br/>
+        Pig: <input type="text" id="pigs"> <br>
+        <button type="button" onclick="animals()">HOW MANY LEGS?</button>
+        <div id="legzies"></div>
+    </fieldset>
+    <fieldset>
+        <legend>Visina na ramnostran triagolnik</legend>
+        <input type="text" id="triangleSide" placeholder="vrednost">
+        <button type="button" onclick="tiangle()">Presmetaj</button>
+        <span id="altitude"></span>
+    </fieldset>
+    <fieldset>
+        <legend>
+            kvadrat parametar
+        </legend>
+        <form>
+        <input type="text" id="sideARec" placeholder="STRANA A">
+        <input type="text" id="sideBRec" placeholder="STRANA B">
+        <button type="button" onclick="parameter()">PRESMETAJ</button>
+        <span id="calculations"></span>
+        </form>
+    </fieldset>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <hr/>
+    <Form>
+        Value 1: <input type="text" id="value1">
+        value 2: <input type="text" id="value2">
+        Operator 
+        <select id="operator">
+            <option value="add">Add</option>
+            <option value="min">Minus</option>
+            <option value="dev">Divide</option>
+            <option value="mult">Multiply</option>
+        </select>
+        <button type="button" onclick="calculator()">Calculate</button>
+
+
+    </Form>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

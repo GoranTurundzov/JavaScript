@@ -1,0 +1,30 @@
+body{
+    background-color: rgb(243, 130, 130);
+    display: flex;
+    justify-content: center;
+}
+
+#loginDiv{
+    
+    margin-top: 15vh;
+    width: 25%;
+    height: 30vh;
+    border: 1px solid black;
+    border-radius: 5%;
+    text-align: center;
+    padding: 25px;
+    background-color: rgb(115, 46, 179, 0.5);
+}
+table, th, td {
+    border: 1px solid black;
+}
+#table{
+    display: block;
+    margin-top: 50px;
+}
+#logOut{
+    position: relative;
+    bottom: -50px;
+    right: -550px;
+    background-color: green;
+}

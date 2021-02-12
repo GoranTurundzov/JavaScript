@@ -1,0 +1,63 @@
+body{
+    background-image: url("https://wallpaperaccess.com/full/24942.jpg");
+    background-size: cover;
+}
+#selectionDiv {
+    float:left;
+    width: 23%;
+    height: 100vh;
+    
+}
+#main{
+    float: left;
+    width: 73%;
+    height: 100vh;
+    text-align: center;
+    justify-content: center;
+}
+
+div {
+    border: 1% solid grey;
+}
+
+select{
+    width: 100%;
+    background-color: rgba(10, 3, 3, 0.5);
+    margin-top: 3%;
+    border: none;
+    /* overflow: hidden; */
+    display: block;
+    text-transform: uppercase;
+   
+}
+option{
+    color: rgb(47, 0, 255);
+    height: 30px;
+    opacity: 1;
+    
+
+}
+h1::first-letter{
+   text-transform: capitalize;
+}
+
+.anAbility::first-letter{
+    text-transform: capitalize;
+}
+#pokeLogo{
+    width: 30%;
+}
+#picAndStats{
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+   
+}
+
+.stats{
+    margin-bottom: 0;
+}
+.pokePic{
+    width: 50%;
+}
+

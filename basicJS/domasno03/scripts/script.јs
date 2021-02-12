@@ -1,0 +1,51 @@
+function dogYears(){
+    var years = parseInt(document.querySelector(`#yearsDog`).value);
+    var dogYears = years * 7;
+    document.form.result.value = dogYears;
+}
+
+function humanYears(){
+    var years = parseInt(document.querySelector(`#yearsHuman`).value);
+    var humanYears = years / 7 ;
+    document.form2.result2.value = humanYears;
+}
+
+
+
+
+// --------------------------ATM-------------------------------
+
+var balance = 10000;
+
+
+function atmWithdraw() {
+    var withdraw = document.querySelector('#withdraw').value;
+    
+    if (balance < withdraw){
+        document.formatm.resultWithdraw.value = `Insufficient Funds`;    
+    }
+    else{
+        if ((withdraw % 5) !== 0) {
+            document.formatm.resultWithdraw.value = `THE ATM CAN NOT DISH OUT 5$ BILLS OR LARGER. SORRY FOR THE INCONVINIANCE`
+        }
+        else {
+            balance = balance - withdraw;
+        
+    document.formatm.resultWithdraw.value = `
+    You have withdrawn ${withdraw} $.
+    Thank you for using our AMT's.
+     Spend them wisely. 
+      Come back again
+      You now have ${balance} in your account`;
+    document.querySelector(`#balance`).innerHTML = `You have ${balance} on your account`;
+  }
+ }
+}
+document.querySelector(`#balance`).innerHTML = `You have ${balance} on your account`;
+
+
+
+console.log (`the type of true/flase is  ${typeof false}`);
+console.log (`the type of numbers without quotes is  ${typeof 22}`);
+console.log (`the type of "text in quites" is  ${typeof "false"}`);
+console.log (`the type of undefined variable is  ${typeof x}`);

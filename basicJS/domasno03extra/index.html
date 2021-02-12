@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asdqwe</title>
+    <link rel="stylesheet" href="./style/style.css">
+
+</head>
+<body>
+    <fieldset>
+        <legend>IS IT ODD OR IS IT EVEN?</legend>
+        <form name="oddEven">
+            <input type="number" id="oddOrEven">
+            <input type="text" id="oddEvenResult" disabled> <br/> 
+            <input type="button" id="isOddOrEven" value="submit">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Minutes to Seconds</legend>
+        <form name="minutesSeconds">
+            <input type="number" id="minutes">
+            <input type="button" value="submit"id="minutesToSeconds">
+            <input type="text"  id="minutesResult" disabled>
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>2points 3points</legend>
+        <form name="pointsCounter">
+            <input type="number"  id="twoPointers" placeholder="2 pointers">
+            <input type="number" id="threePointers" placeholder="3 pointers"> = 
+            <input type="text"  id="pointsResult" disabled>
+            <input type="button" value="submit" id="twoThreePointers">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>How Many Legs</legend>
+        <form name="legsCount">
+            <input type="number" id="chicken">
+            <input type="number"  id="cow">
+            <input type="number" id="pig">  <br/>
+            <input type="button" value="submit" id="animalLegs">
+            <input type="text"  id="legsResult" disabled>
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Calculator</legend>
+        <form name="calculate">
+            <input type="number"  id="number1">
+            <select id="operator">
+                <option selected>??</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" id="number2"> =
+            <Input type="text" id="calculatorResult" disabled></Input>
+            <input type="button" value="Submit" id="calculator">
+        </form>
+    </fieldset> 
+    <fieldset>
+        <legend>Which word is bigger</legend>
+        <form name="comparison" >
+            <input type="text" id="word1">
+            <input type="text"  id="biggerSmaller" disabled>
+            <input type="text"  id="word2">
+            <input type="button" value="submit" id="wordCompare">
+        </form>
+    </fieldset>
+    <fieldset class="bars">
+        <legend>bartender</legend>
+        <form name="Bartender">
+            <input type="number"  id="drinkerAge">
+            <button type="button" id="barbutton">Submit</button><br/>
+            <input type="radio" name="onBreak" value="on" > On Break 
+            <input type="radio" name="onBreak" value="off" checked>In Bar <br/>
+            <textarea name="response" id="response" ></textarea> <br/>
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Feeling!!</legend>
+        <form name="feeling">
+            How are you feeling today?
+                <select name="feeling" id="feeling">
+                    <option value="" selected disabled></option>
+                    <option value="happy">Happy</option>
+                    <option value="sad">Sad</option>
+                    <option value="lonely">Lonely</option>
+                    <option value="angry">Angry</option>
+                    <option value="depressed">Depressed</option>
+                    <option value="likeShit">Like Shit</option>
+                    <option value="topWorld">Like im on top of the WORLD</option>
+                </select>
+                <button type="button"  id="fellingButton" >Click Me</button>
+                <input type="text" id="feelLike" style="width: 600px; background-color: antiquewhite;" disabled>
+            </form>
+    </fieldset>
+    <fieldset>
+        <legend>Pizza Time!</legend>
+        <form name="pizzaTime">
+            We are <input type="number" id="people"> people and we have 
+            <input type="number" id="slices"> slices of pizza.
+            <input type="text"  id="eachGets"  disabled>
+            <button type="button" id="shareSlices">Split UP</button>
+            <input type="text" id="leftOver" disabled style="border: antiquewhite; width: 400px;">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>6 + 1 Action!</legend>
+        <form name="coffeeCup">
+            <input type="number"  id="cups">
+            <input type="text"  id="youGet" disabled style="width: 250px;">
+            <button type="button" id="coffeeCups">Calculate</button>
+        </form>
+    </fieldset>
+
+
+
+    <script src="./script/script.js"></script>
+</body>
+</html>

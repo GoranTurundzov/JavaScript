@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domasno03</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <fieldset>
+        <legend>Human To Dog Years</legend>
+    <form  name="form">
+        <input type="number" id="yearsDog" placeholder="How old is your dog in human years?">
+        <input type="text" placeholder="result" id="result" value=" "></input><br/>
+        <input type="button" value="Submit" onclick=dogYears()>
+    </form>
+</fieldset>
+<fieldset>
+    <legend>Dog to Human (extra)</legend>
+        <form name="form2">
+            <input type="number" id="yearsHuman">
+            <input type="text" id="result2"> <br/>
+            <input type="button" value="Submit" onclick="humanYears()">
+        </form>
+</fieldset>
+<hr/> <hr/> <hr/>
+
+<fieldset>
+    <legend>ATM MACHINE</legend>
+    <div id="balance"></div> <br/>
+    <form name="formatm">
+        <input type="number" placeholder="Enter Sum to Withdraw" id="withdraw" step=".01"> 
+        <input type="button" value="Submit" onclick="atmWithdraw() "> <br/>
+        <textarea id="resultWithdraw" > </textarea>
+    </form>
+</fieldset>
+<script src="./scripts/script.js"></script>
+</body>
+
+</html>

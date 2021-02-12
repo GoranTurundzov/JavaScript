@@ -1,0 +1,7 @@
+th{
+    width: 10px;
+    height: 10px;
+}
+table, th, td{
+    border: 2px solid rgb(104, 30, 30);
+}
