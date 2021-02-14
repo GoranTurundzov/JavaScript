@@ -123,7 +123,7 @@ function numToWord(){
         output.value = "Welcome to My number to word conventer"
     } 
     else if(isNaN(
-        parseFloat(valueInput.value))){
+        parseFloat(valueInput.value)) || valueInput.value.includes(" ")){
         output.value = `Please enter a valied number between 0 and 9999999999`
     }
    else {
@@ -246,7 +246,11 @@ function printNumberMkd(){
     let number = valueInput.value
     if(number == 0){
         output.value = `Нула`
-    }else{
+    }else if(isNaN(
+        parseFloat(valueInput.value)) || valueInput.value.includes(" ")){
+        output.value = `Ве молиме внесете број помегју 0 и 9999999999`
+    }
+    else{
         switch(valueInput.value.length){
             case 1:
                 output.value = singleDIgitNumMkd(valueInput.value);
