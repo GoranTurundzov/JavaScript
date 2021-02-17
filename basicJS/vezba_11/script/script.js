@@ -121,19 +121,32 @@ function updateUser(who){
 
    <button id="editUserBtn">Update</button>
  </div>`;
+    document.addEventListener("click", function (e){
+        if(e.target.matches("button")){
+            users[who].username = document.getElementById("editUsername").value
+            users[who].password = document.getElementById("editPassword").value
+            if(document.getElementById("selectAdmin").value = "true"){
+            users[who].admin = true;
+            } else {
+                users[who].admin = false;
+            }
+            showContentAdmin();
+            tableDiv.nextElementSibling.style.display = "none";
+        }
+    })
     document.getElementById("editUsername").value = users[who].username
     document.getElementById("editPassword").value = users[who].password
-    document.getElementById("editUserBtn").addEventListener(`click` , function(){
-        users[who].username = document.getElementById("editUsername").value
-        users[who].password = document.getElementById("editPassword").value
-        if(document.getElementById("selectAdmin").value = "true"){
-        users[who].admin = true;
-        } else {
-            users[who].admin = false;
-        }
-        showContentAdmin();
-        tableDiv.nextElementSibling.style.display = "none";
-    })
+    // document.getElementById("editUserBtn").addEventListener(`click` , function(){
+    //     users[who].username = document.getElementById("editUsername").value
+    //     users[who].password = document.getElementById("editPassword").value
+    //     if(document.getElementById("selectAdmin").value = "true"){
+    //     users[who].admin = true;
+    //     } else {
+    //         users[who].admin = false;
+    //     }
+    //     showContentAdmin();
+    //     tableDiv.nextElementSibling.style.display = "none";
+    // })
     
 }
 
