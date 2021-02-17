@@ -176,7 +176,7 @@ let uiService = {
                  document.getElementById("sortNamePeople").addEventListener("click", function(){   
                      
                      if(navigationService.direction === false){
-                         data.sort(function(a,b){
+                         data.sort((a,b) => {
                              navigationService.direction = true;
                             if(a.name < b.name) return -1;
                             if(a.name > b.name) return 1;
@@ -185,7 +185,7 @@ let uiService = {
                         uiService.loadPeoplePage(data);
                         
                     } else if (navigationService.direction === true) {
-                        data.sort(function(a,b){
+                        data.sort((a,b) => {
                             navigationService.direction = false;
                             if(a.name > b.name) return -1;
                             if(a.name < b.name) return 1;
@@ -231,7 +231,7 @@ let uiService = {
         
         document.getElementById("sortShips").addEventListener("click", function(){
             if(navigationService.direction === false){
-                data.sort(function(a,b){
+                data.sort((a,b) => {
                     navigationService.direction = true;
                    if(a.name < b.name) return -1;
                    if(a.name > b.name) return 1;
@@ -240,7 +240,7 @@ let uiService = {
                uiService.loadPeoplePage(data);
                
            } else if (navigationService.direction === true) {
-               data.sort(function(a,b){
+               data.sort((a,b) => {
                    navigationService.direction = false;
                    if(a.name > b.name) return -1;
                    if(a.name < b.name) return 1;
@@ -279,7 +279,7 @@ let uiService = {
         })
         document.getElementById("sortPlanets").addEventListener("click", function(){
             if(navigationService.direction === false){
-                data.sort(function(a,b){
+                data.sort((a,b) => { 
                     navigationService.direction = true;
                    if(a.name < b.name) return -1;
                    if(a.name > b.name) return 1;
@@ -288,7 +288,7 @@ let uiService = {
                uiService.loadPeoplePage(data);
                
            } else if (navigationService.direction === true) {
-               data.sort(function(a,b){
+               data.sort((a,b) => {
                    navigationService.direction = false;
                    if(a.name > b.name) return -1;
                    if(a.name < b.name) return 1;
