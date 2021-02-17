@@ -179,7 +179,7 @@ let uiService = {
                          data.sort((a,b) => {
                              navigationService.direction = true;
                             if(a.name < b.name) return -1;
-                            if(a.name > b.name) return 1;
+                            
                            
                         });
                         uiService.loadPeoplePage(data);
@@ -188,7 +188,7 @@ let uiService = {
                         data.sort((a,b) => {
                             navigationService.direction = false;
                             if(a.name > b.name) return -1;
-                            if(a.name < b.name) return 1;
+                           
                            
                             
                     });
@@ -234,7 +234,7 @@ let uiService = {
                 data.sort((a,b) => {
                     navigationService.direction = true;
                    if(a.name < b.name) return -1;
-                   if(a.name > b.name) return 1;
+                   
                   
                });
                uiService.loadPeoplePage(data);
@@ -243,7 +243,7 @@ let uiService = {
                data.sort((a,b) => {
                    navigationService.direction = false;
                    if(a.name > b.name) return -1;
-                   if(a.name < b.name) return 1;
+                   
                   
                    
            });
@@ -282,7 +282,7 @@ let uiService = {
                 data.sort((a,b) => { 
                     navigationService.direction = true;
                    if(a.name < b.name) return -1;
-                   if(a.name > b.name) return 1;
+                   
                   
                });
                uiService.loadPeoplePage(data);
@@ -291,7 +291,7 @@ let uiService = {
                data.sort((a,b) => {
                    navigationService.direction = false;
                    if(a.name > b.name) return -1;
-                   if(a.name < b.name) return 1;
+                   
                   
                    
            });
