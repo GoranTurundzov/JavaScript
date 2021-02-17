@@ -161,7 +161,7 @@ let uiService = {
                 <div class="col-md-1" id="sortFilms">Films</div>
             </div>
         `;
-        for (let person of data) {
+        data.map(person => {
             this.resultElement.innerHTML += `
             <div class="row white padding">
                 <div class="col-md-3">${person.name}</div>
@@ -172,7 +172,7 @@ let uiService = {
                 <div class="col-md-1">${person.films.length}</div>
             </div>
             `;
-        }
+        })
                  document.getElementById("sortNamePeople").addEventListener("click", function(){   
                      
                      if(navigationService.direction === false){
@@ -216,7 +216,7 @@ let uiService = {
                 <div class="col-md-1">Class</div>
             </div>
         `;
-        for (let ship of data) {
+        data.map(ship =>{
             this.resultElement.innerHTML += `
             <div class="row white padding">
                 <div class="col-md-3">${ship.name}</div>
@@ -227,7 +227,7 @@ let uiService = {
                 <div class="col-md-1">${ship.starship_class}</div>
             </div>
             `;
-        }
+        })
         
         document.getElementById("sortShips").addEventListener("click", function(){
             if(navigationService.direction === false){
@@ -265,7 +265,7 @@ let uiService = {
             </div>
         `;
 
-        for (let planet of data) {
+        data.map(planet =>{
             this.resultElement.innerHTML += `
             <div class="row white padding">
                 <div class="col-md-3">${planet.name}</div>
@@ -276,7 +276,7 @@ let uiService = {
                 <div class="col-md-1">${planet.terrain}</div>
             </div>
             `;
-        }
+        })
         document.getElementById("sortPlanets").addEventListener("click", function(){
             if(navigationService.direction === false){
                 data.sort(function(a,b){
