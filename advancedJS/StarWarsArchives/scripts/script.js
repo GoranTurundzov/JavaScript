@@ -10,6 +10,7 @@ let navigationService = {
     calls: 0,
     day: new Date().getDay(),
     limiter: false,
+    direction: false,
     
     apiCallLimiter: function(limit = 10){   
         if(navigationService.calls < limit && navigationService.day === new Date().getDay()){
@@ -172,15 +173,30 @@ let uiService = {
             </div>
             `;
         }
-                 document.getElementById("sortNamePeople").addEventListener("click", function(e){                     
-                        data.sort(function(a,b){
+                 document.getElementById("sortNamePeople").addEventListener("click", function(){   
+                     
+                     if(navigationService.direction === false){
+                         data.sort(function(a,b){
+                             navigationService.direction = true;
                             if(a.name < b.name) return -1;
                             if(a.name > b.name) return 1;
-                            return 0;
+                           
                         });
-                      
-                     uiService.loadPeoplePage(data);
+                        uiService.loadPeoplePage(data);
+                        
+                    } else if (navigationService.direction === true) {
+                        data.sort(function(a,b){
+                            navigationService.direction = false;
+                            if(a.name > b.name) return -1;
+                            if(a.name < b.name) return 1;
+                           
+                            
+                    });
+                    uiService.loadPeoplePage(data);
+                }
+
                  });
+                
              
               
                  
@@ -214,14 +230,25 @@ let uiService = {
         }
         
         document.getElementById("sortShips").addEventListener("click", function(){
-            let order = "";
-           
-            data.sort(function(a,b){
-                if(a.name < b.name) return -1;
-                if(a.name > b.name) return 1;
-                return 0;
-            });
-            uiService.loadShipsPage(data);
+            if(navigationService.direction === false){
+                data.sort(function(a,b){
+                    navigationService.direction = true;
+                   if(a.name < b.name) return -1;
+                   if(a.name > b.name) return 1;
+                  
+               });
+               uiService.loadPeoplePage(data);
+               
+           } else if (navigationService.direction === true) {
+               data.sort(function(a,b){
+                   navigationService.direction = false;
+                   if(a.name > b.name) return -1;
+                   if(a.name < b.name) return 1;
+                  
+                   
+           });
+           uiService.loadPeoplePage(data);
+       }
            
         });
     },
@@ -251,12 +278,25 @@ let uiService = {
             `;
         }
         document.getElementById("sortPlanets").addEventListener("click", function(){
-            data.sort(function(a,b){
-                if(a.name < b.name) return -1;
-                if(a.name > b.name) return 1;
-                return 0;
-            });
-            uiService.loadPlanetsPage(data);
+            if(navigationService.direction === false){
+                data.sort(function(a,b){
+                    navigationService.direction = true;
+                   if(a.name < b.name) return -1;
+                   if(a.name > b.name) return 1;
+                  
+               });
+               uiService.loadPeoplePage(data);
+               
+           } else if (navigationService.direction === true) {
+               data.sort(function(a,b){
+                   navigationService.direction = false;
+                   if(a.name > b.name) return -1;
+                   if(a.name < b.name) return 1;
+                  
+                   
+           });
+           uiService.loadPeoplePage(data);
+       }
         });
     },
     toggleLoader: function(toggle){
