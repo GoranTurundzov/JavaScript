@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Students List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table class="table table-dark  table-striped">
+        <thead>
+            <tr>
+                <th scope="col" id="firstName">Name</th>
+                <th scope="col" id="lastName">Last Name</th>
+                <th scope="col" id="email">Email</th>
+                <th scope="col">Gender <select id="genderSelector">
+                    <option value="#" selected>both</option>
+                    <option value="Female">Male</option>
+                    <option value="Male">Female</option>
+                </select></th>
+                <th scope="col">City  
+                    <select id="citySelect">
+                        <option value="#" selected> All</option>
+                    </select>
+                </th>
+                <th scope="col">Average Grade
+                    <Select id="gradeSelector"> 
+                        <option value="1"> All </option>
+                        <option value="2">2 and higher </option>
+                        <option value="3">3 and higher </option>
+                        <option value="4">4 and higher </option>
+                        <option value="5">5</option>
+                    </Select>
+                </th>
+                <th scope="col">Age <select id="ageSelector">
+                    <option value="#" selected>Age : any</option>
+                </select></th>
+            </tr>
+            <tr>
+                <th colspan="7" class="buttonRow"><button id="sortTable">Filter</button></th>
+           </tr>
+
+        </thead>
+        <tbody id="printResult">
+
+        </tbody>
+    </table>
+    <script src="./script.js"></script>
+</body>
+</html>
