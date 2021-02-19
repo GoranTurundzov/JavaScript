@@ -8,7 +8,7 @@ let navigationService = {
     genderSelector: document.getElementById("genderSelector"),
     sortBtn: document.getElementById("sortTable"),
     citySelector: document.getElementById("citySelect"),
-    url: "./students.json",
+    url: "https://raw.githubusercontent.com/sedc-codecademy/skwd9-04-ajs/main/Samples/students_v2.json",
     student: [],
 
 }
