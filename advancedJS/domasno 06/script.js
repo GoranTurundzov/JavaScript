@@ -7,6 +7,7 @@ let navigationService = {
     gradeSelector: document.getElementById("gradeSelector"),
     genderSelector: document.getElementById("genderSelector"),
     sortBtn: document.getElementById("sortTable"),
+    studentsBover2: document.getElementById("maleStudents"),
     citySelector: document.getElementById("citySelect"),
     url: "https://raw.githubusercontent.com/sedc-codecademy/skwd9-04-ajs/main/Samples/students_v2.json",
     student: [],
@@ -21,6 +22,8 @@ let apiServices = {
         .then(data => data.json())
         .then(students => {
             // uiService.printStudents(student)
+             uiService.malesStatStartWithBandAverageGrareOver2(students)
+            uiService.femaleOver24Average(students)
             uiService.manageData(students);
             uiService.fillCity(students);
             uiService.fillAge(students);
@@ -54,7 +57,7 @@ let apiServices = {
 
 
             })
-           
+            
            
         })
     }
@@ -82,11 +85,11 @@ let uiService = {
           cities.push(city.city)
       }
       cities.sort((a, b) => {if(a < b ) return -1})
-      console.log(cities);
+     
       
       let singleCIties = Array.from(new Set(cities))
     
-      console.log(singleCIties)
+   
       for(value of singleCIties){
           navigationService.citySelector.innerHTML += `<option value="${value}"> ${value} </option>`
       }
@@ -105,7 +108,36 @@ let uiService = {
     },
     manageData: function(data){
         data.map(student => uiService.printStudents(student))
+    },
+    femaleOver24Average: function(data){
+        let result = data
+        .filter(student => student.age >= 24)
+        .filter(student => student.gender === "Female")
+        .map(student => student.averageGrade )
+        let totalGrades = result.reduce((sum , number) => (sum += number))
+        let average = totalGrades / result.length
+        console.log(average)
+        document.getElementById("inputOutput").value = average;
+    },
+    malesStatStartWithBandAverageGrareOver2: function(data){
+        navigationService.studentsBover2.innerHTML = "";
+        let result = data
+        .filter(student => student.averageGrade >= 2)
+        .filter(student => student.firstName[0] == "B" )
+        .map(student => `
+          <div class="row white padding">
+            <div class="col-md-2"> ${student.firstName}        </div>
+            <div class="col-md-2"> ${student.lastName}          </div>
+            <div class="col-md-2"> ${student.email}             </div>
+            <div class="col-md-2"> ${student.averageGrade}    </div>
+            <div class="col-md-2"> ${student.age}     </div>
+          </div>
+          `
+        )
+        navigationService.studentsBover2.innerHTML = result
     }
+
 }
 
 apiServices.getStudents(navigationService.url);
+uiService.femaleOver24Average
