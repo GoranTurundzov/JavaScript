@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <fieldset><legend>Averages for the RESULTS SHOWN</legend>
+        <div class="row white padding">
+        <div class="col-md-2"> </div>
+        <div class="col-md-4" > AVERAGE AGE ON RESULTS SHOWN  <input id="averageAgeShown" ></div>
+        <div class="col-md-4" > AVERAGE GRADE ON RESULTS SHOWN <input id="averageGradeSown"> </div>
+        <div class="col-md-2"> </div>
+        </div>
+    </fieldset>
     <table class="table table-dark  table-striped">
         <thead>
             <tr>
@@ -47,7 +55,8 @@
         <tbody id="printResult">
 
         </tbody>
-    </table>
+    </table> 
+
         <label for="inputOutput">Average grade of all female students over 24 years</label><input id="inputOutput" name="inputOutput">  <br>
         <label for="maleStudentsBOver2">All male students with a name starting with B and average grade over 2</label> <div id="maleStudents"></div>
     <script src="./script.js"></script>

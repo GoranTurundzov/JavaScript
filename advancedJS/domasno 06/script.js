@@ -8,6 +8,8 @@ let navigationService = {
     genderSelector: document.getElementById("genderSelector"),
     sortBtn: document.getElementById("sortTable"),
     studentsBover2: document.getElementById("maleStudents"),
+    averageAgeSelected: document.getElementById("averageAgeShown"),
+    averageGradeSelected: document.getElementById("averageGradeSown"),
     citySelector: document.getElementById("citySelect"),
     url: "https://raw.githubusercontent.com/sedc-codecademy/skwd9-04-ajs/main/Samples/students_v2.json",
     student: [],
@@ -22,42 +24,58 @@ let apiServices = {
         .then(data => data.json())
         .then(students => {
             // uiService.printStudents(student)
-             uiService.malesStatStartWithBandAverageGrareOver2(students)
+            uiService.malesStatStartWithBandAverageGrareOver2(students)
             uiService.femaleOver24Average(students)
             uiService.manageData(students);
             uiService.fillCity(students);
             uiService.fillAge(students);
+            uiService.clearAverage()
+            students.map(student => uiService.fillAverages(student))
+            uiService.averageGrdeAge()
             navigationService.sortBtn.addEventListener("click" , function(){
+                uiService.clearAverage()
+                
                  navigationService.output.innerHTML = ""
-                for(student of students){
+                students.map(student => {
+                    
                     if(navigationService.citySelector.value === "#" && navigationService.ageSelector.value === "#"){
                         if (student.gender !== navigationService.genderSelector.value && student.averageGrade >= navigationService.gradeSelector.value){
                             uiService.printStudents(student)
+                            uiService.fillAverages(student)
                         }
                     }
                     else if(navigationService.citySelector.value === "#" && navigationService.ageSelector.value !== "#"){
                         if (student.gender !== navigationService.genderSelector.value && student.averageGrade >= navigationService.gradeSelector.value && navigationService.ageSelector.value == student.age){
-                            console.log(navigationService.ageSelector.value)
                             uiService.printStudents(student)
+                            uiService.fillAverages(student)
+
                         }
                     }
                     else if(navigationService.citySelector.value !== "#" && navigationService.ageSelector.value === "#"){
                         if (student.gender !== navigationService.genderSelector.value && student.averageGrade >= navigationService.gradeSelector.value && navigationService.citySelector.value == student.city){
-                            uiService.printStudents(student)
+                            uiService.printStudents(student) 
+                            uiService.fillAverages(student)
                         }
                     }
                     else if(student.gender !== navigationService.genderSelector.value && student.averageGrade >= navigationService.gradeSelector.value && navigationService.citySelector.value == student.city && navigationService.ageSelector.value == student.age){
                         uiService.printStudents(student)
+                        uiService.averageAge += student.age;
+                        uiService.averageGrade += student.averageGrade;
+                        uiService.students++;
+                       
                     }
-                    }
-
+                    
+                })
+                
+                    
                     if(navigationService.output.innerHTML == ""){
                         navigationService.output.innerHTML = `<tr> <td colspan=7 > There are no entries that match this critera </td> </tr>`
                     }
-
-
-            })
-            
+                    uiService.averageGrdeAge()
+                    
+                })
+                
+             
            
         })
     }
@@ -108,6 +126,7 @@ let uiService = {
     },
     manageData: function(data){
         data.map(student => uiService.printStudents(student))
+       
     },
     femaleOver24Average: function(data){
         let result = data
@@ -116,7 +135,6 @@ let uiService = {
         .map(student => student.averageGrade )
         let totalGrades = result.reduce((sum , number) => (sum += number))
         let average = totalGrades / result.length
-        console.log(average)
         document.getElementById("inputOutput").value = average;
     },
     malesStatStartWithBandAverageGrareOver2: function(data){
@@ -135,9 +153,31 @@ let uiService = {
           `
         )
         navigationService.studentsBover2.innerHTML = result
+    },
+    averageAge: 0,
+    averageGrade: 0,
+    students: 0,
+    fillAverages: function(student){
+        uiService.averageAge += student.age;
+        uiService.averageGrade += student.averageGrade;
+        uiService.students++;
+    },
+    clearAverage: function(){
+    uiService.averageAge = 0;
+    uiService.averageGrade = 0;
+    uiService.students = 0;
+    },
+    averageGrdeAge: function(){
+        let averageAge = uiService.averageAge / uiService.students;
+        let averageGrade = uiService.averageGrade / uiService.students;
+        navigationService.averageAgeSelected.value = averageAge ;
+        navigationService.averageGradeSelected.value = averageGrade ;
+     
     }
+    
 
 }
 
 apiServices.getStudents(navigationService.url);
 uiService.femaleOver24Average
+
