@@ -48,7 +48,8 @@
                 </select></th>
             </tr>
             <tr>
-                <th colspan="7" class="buttonRow"><button id="sortTable">Filter</button></th>
+                <th colspan="4"><input type="search"  id="searchBar" placeholder="Search"></th>
+                <th colspan="3" class="buttonRow"><button id="sortTable">Filter</button></th>
            </tr>
 
         </thead>
@@ -56,9 +57,13 @@
 
         </tbody>
     </table> 
-
-        <label for="inputOutput">Average grade of all female students over 24 years</label><input id="inputOutput" name="inputOutput">  <br>
-        <label for="maleStudentsBOver2">All male students with a name starting with B and average grade over 2</label> <div id="maleStudents"></div>
+                <H1> RETURNS FOR THE HOMEWORK SPECIFICLY</H1>
+                <div class="container femaleDIv" >
+                    <label for="inputOutput">Average grade of all female students over 24 years</label><input id="inputOutput" name="inputOutput">  <br>
+                </div> 
+                <div class="container">
+        <label for="maleStudentsBOver2">All male students with a name starting with B and average grade over 2</label> <div class="row" id="maleStudents"></div>
+                </div> 
     <script src="./script.js"></script>
 </body>
 </html>

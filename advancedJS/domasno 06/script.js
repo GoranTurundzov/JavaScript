@@ -13,6 +13,7 @@ let navigationService = {
     citySelector: document.getElementById("citySelect"),
     url: "https://raw.githubusercontent.com/sedc-codecademy/skwd9-04-ajs/main/Samples/students_v2.json",
     student: [],
+    searchBar: document.getElementById("searchBar"),
 
 }
 
@@ -59,24 +60,24 @@ let apiServices = {
                     }
                     else if(student.gender !== navigationService.genderSelector.value && student.averageGrade >= navigationService.gradeSelector.value && navigationService.citySelector.value == student.city && navigationService.ageSelector.value == student.age){
                         uiService.printStudents(student)
-                        uiService.averageAge += student.age;
-                        uiService.averageGrade += student.averageGrade;
-                        uiService.students++;
+                        uiService.fillAverages(student)
+                       
                        
                     }
                     
                 })
-                
                     
                     if(navigationService.output.innerHTML == ""){
                         navigationService.output.innerHTML = `<tr> <td colspan=7 > There are no entries that match this critera </td> </tr>`
                     }
+                   
                     uiService.averageGrdeAge()
                     
                 })
-                
-             
-           
+                searchBar.addEventListener(`keyup` , function(){
+                   uiService.searchTable()
+                   uiService.averageGrdeAge()
+                })
         })
     }
 }
@@ -168,13 +169,35 @@ let uiService = {
     uiService.students = 0;
     },
     averageGrdeAge: function(){
-        let averageAge = uiService.averageAge / uiService.students;
-        let averageGrade = uiService.averageGrade / uiService.students;
+        let averageAge = parseFloat(uiService.averageAge / uiService.students).toFixed(1);
+        let averageGrade = parseFloat(uiService.averageGrade / uiService.students).toFixed(2);
         navigationService.averageAgeSelected.value = averageAge ;
         navigationService.averageGradeSelected.value = averageGrade ;
-     
+        
+    },
+    searchTable: function() {
+        var input, filter, found, table, tr, td, i, j;
+        input = navigationService.searchBar
+        filter = input.value.toUpperCase();
+        table = document.getElementById("printResult");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            for (j = 0; j < td.length; j++) {
+                if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    found = true;
+                }
+            }
+            if (found) {
+                tr[i].style.display = "";
+                found = false;
+               
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
     }
-    
+   
 
 }
 
