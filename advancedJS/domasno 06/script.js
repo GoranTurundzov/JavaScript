@@ -21,25 +21,23 @@ document.getElementById("sortTable").addEventListener(`click`, () => {
     apiServices.getStudentsAsync(navigationService.url);
     })
 navigationService.searchBar.addEventListener(`keyup` , function(){
-    
-        apiServices.getStudentsSearchBarAsync(navigationService.url);
+    apiServices.getStudentsAsync(navigationService.url);
+}
+)
 
-        
-
-    })
 
 
 let apiServices = {
-    getStudents: function(url){
-        fetch(url)
-        .then(response => response.json())
-        .then(students => {
-            uiService.fillCity(students)
-            uiService.fillAge(students)
-            uiService.printStudents(students)
-            document.getElementById("inputOutput").value = homeworkAssignments.femaleAverageOver24(students)
-            navigationService.studentsBover2.innerHTML = homeworkAssignments.maleOnBWith2PlusAverage(students)
-        })
+    loadStudentsAsync: async function(url){
+        navigationService.output.innerHTML = `<tr> <td> </td> <td> </td><td> </td> <td> </td><td> <img src="./loader.gif" alt="" width="40px"> </td>  <td> </td> <td> </td> </tr>`
+        let call = await fetch(url)
+        let students = await call.json()
+        await uiService.fillCity(students);
+        await uiService.fillAge(students);
+        await uiService.printStudents(students);
+        await uiService.printHomework(students);
+           
+        
     },
    
     getStudentsAsync: async function(url){
@@ -49,9 +47,9 @@ let apiServices = {
         let sortCity = await uiService.filterCity(sortGender);
         let sortGrade = await uiService.filterGrade(sortCity);
         let sortAge = await uiService.filterAge(sortGrade);
-        
-        await uiService.printStudents(sortAge);
-        await uiService.printAverages(sortAge);
+        let searchBar = uiService.theSearchBar(sortAge);
+        await uiService.printStudents(searchBar);
+        await uiService.printAverages(searchBar);
 
        
         
@@ -59,7 +57,7 @@ let apiServices = {
     getStudentsSearchBarAsync: async function(url){
         let call = await fetch(url);
         let data = await call.json();
-        let searchBar = await uiService.theSearchBar(data);
+        
         await uiService.printStudents(searchBar);
         await uiService.printAverages(searchBar);
         
@@ -168,7 +166,7 @@ theSearchBar: function(data){
 }
 
 
-apiServices.getStudents(navigationService.url)
+apiServices.loadStudentsAsync(navigationService.url)
 
 
 let homeworkAssignments = {
@@ -200,5 +198,9 @@ let homeworkAssignments = {
        `
      )
      return result
+    }, 
+    printHomework: function(students){
+        document.getElementById("inputOutput").value = homeworkAssignments.femaleAverageOver24(students)
+        navigationService.studentsBover2.innerHTML = homeworkAssignments.maleOnBWith2PlusAverage(students)
     }
 }
