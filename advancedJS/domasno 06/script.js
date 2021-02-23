@@ -31,7 +31,6 @@ let apiServices = {
             uiService.fillAge(students)
             uiService.printStudents(students)
             document.getElementById("inputOutput").value = homeworkAssignments.femaleAverageOver24(students)
-            console.log(homeworkAssignments.maleOnBWith2PlusAverage(students));
             navigationService.studentsBover2.innerHTML = homeworkAssignments.maleOnBWith2PlusAverage(students)
         })
     },
@@ -43,7 +42,7 @@ let apiServices = {
         let sortCity = await uiService.filterCity(sortGender);
         let sortGrade = await uiService.filterGrade(sortCity);
         let sortAge = await uiService.filterAge(sortGrade);
-        await console.log(sortAge)
+        
         await uiService.printStudents(sortAge);
         await uiService.printAverages(sortAge);
         
