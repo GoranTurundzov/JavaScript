@@ -20,6 +20,13 @@ let navigationService = {
 document.getElementById("sortTable").addEventListener(`click`, () => {
     apiServices.getStudentsAsync(navigationService.url);
     })
+navigationService.searchBar.addEventListener(`keyup` , function(){
+    
+        apiServices.getStudentsSearchBarAsync(navigationService.url);
+
+        
+
+    })
 
 
 let apiServices = {
@@ -45,9 +52,20 @@ let apiServices = {
         
         await uiService.printStudents(sortAge);
         await uiService.printAverages(sortAge);
+
+       
         
-    }
+    },
+    getStudentsSearchBarAsync: async function(url){
+        let call = await fetch(url);
+        let data = await call.json();
+        let searchBar = await uiService.theSearchBar(data);
+        await uiService.printStudents(searchBar);
+        await uiService.printAverages(searchBar);
+        
+    },
 }
+
 
 let uiService = {
     
@@ -136,7 +154,17 @@ averageGrade: function(data){
 printAverages: function(data){
     navigationService.averageAgeSelected.value = uiService.averageAge(data);
     navigationService.averageGradeSelected.value = uiService.averageGrade(data);
-}
+},
+theSearchBar: function(data){
+      let what = data.filter(student => {
+       if(student.firstName.toLowerCase().includes(navigationService.searchBar.value.toLowerCase()) || student.lastName.toLowerCase().includes(navigationService.searchBar.value.toLowerCase())){
+        
+       return student
+       
+   }
+})
+   return what
+},
 }
 
 
