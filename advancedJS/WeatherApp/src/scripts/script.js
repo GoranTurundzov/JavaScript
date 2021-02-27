@@ -31,10 +31,10 @@ let navService = {
                 navService.showPage(navService.pages[i])
             })
         }
-        this.searchBtn.addEventListener("click",async function() {
-            await navService.limitCalls(10 , 1000000);
+        this.searchBtn.addEventListener("click", function() {
+            navService.limitCalls(10 , 1000000);
             if(navService.allowLoad === true){
-            await weatherService.getDataAsync()
+             weatherService.getDataAsync()
             }
         });
        
@@ -91,17 +91,24 @@ let navService = {
 
 let weatherService = {
     apiKey: "6fcdc04080b065827c805249b33e006c",
-    city: "skopje",
+    city: function(){
+        if(navService.navSearch.value === ""){
+            return `skopje`
+        }
+        else{
+            return navService.navSearch.value
+        }
+    },
     apiUrl: "https://api.openweathermap.org/data/2.5/forecast",
     getDataAsync:async function() {
+        console.log(`start`)
+        let data = await fetch(`${this.apiUrl}?q=${this.city()}&units=metric&appid=${this.apiKey}`)
         await navService.loaderOnOff()
-        if(navService.navSearch.value !== ""){
-            weatherService.city = navService.navSearch.value}
-        let data = await fetch(`${this.apiUrl}?q=${this.city}&units=metric&appid=${this.apiKey}`)
         let response = await data.json()
-        console.log(response)
+        
         await uiService.loadHourlyTable(response);
         await uiService.loadStatistics(response);
+        await uiService.loadMap(response);
         await navService.loaderOnOff()
         navService.tempSort.addEventListener(`click` ,function(){
             navService.sortTemperature(response)
@@ -171,6 +178,9 @@ let uiService = {
             <h3>Coldest time of the following period  ${statisticsData.coldestTime}</h3>
                 <h4> SUNRISE: ${statisticsData.sunrise}</h4>
                 <h4> SUNSET: ${statisticsData.sunset}</h4>
+                <div class="row"> 
+                
+               
             
             
         `
@@ -240,6 +250,9 @@ let uiService = {
           })
           
 
+    },
+    loadMap: function(data){
+        document.getElementById("maps").innerHTML = `<div class="mapouter"><div class="gmap_canvas"><iframe width="1080" height="800" id="gmap_canvas" src="https://maps.google.com/maps?q=${data.city.name}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://putlocker-is.org"></a><br><style>.mapouter{position:relative;text-align:right;height:800px;width:1080px;}</style><a href="https://www.embedgooglemap.net">embedding google maps into website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:800px;width:1080px;}</style></div></div>`
     }
     
 
