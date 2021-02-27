@@ -11,6 +11,7 @@ let navService = {
     minute: new Date().getMinutes(),
     month: new Date().getMonth(),
     allowLoad: true,
+    loadAnimation: false,
     activateItem: function(item) {
         for (let navItem of this.navItems) {
             navItem.classList.remove("active")
@@ -68,8 +69,21 @@ let navService = {
        }
     
     },
-    loaderOff: function(){
-        setTimeout(() =>{ navService.loadingAni.style.display = "none"} , 400)
+    loaderOnOff: function(){
+        if(navService.loadAnimation === false){
+            navService.loadAnimation = true
+         navService.loadingAni.style.display = "block"
+        }
+        if(navService.loadAnimation === true){
+            navService.loadAnimation = false
+            // setTimeout(()=> {        
+                navService.loadingAni.style.display = "none" 
+            // }, 400
+            // )
+
+            //will not show without the timeOut its too quick
+         
+        }
     },
       
    
@@ -80,15 +94,15 @@ let weatherService = {
     city: "skopje",
     apiUrl: "https://api.openweathermap.org/data/2.5/forecast",
     getDataAsync:async function() {
+        await navService.loaderOnOff()
         if(navService.navSearch.value !== ""){
             weatherService.city = navService.navSearch.value}
         let data = await fetch(`${this.apiUrl}?q=${this.city}&units=metric&appid=${this.apiKey}`)
-        navService.loadingAni.style.display = "block"
         let response = await data.json()
         console.log(response)
         await uiService.loadHourlyTable(response);
         await uiService.loadStatistics(response);
-        await navService.loaderOff()
+        await navService.loaderOnOff()
         navService.tempSort.addEventListener(`click` ,function(){
             navService.sortTemperature(response)
         })
