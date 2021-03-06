@@ -19,7 +19,7 @@ let navService = {
         item.classList.add("active")
     },
     showPage: function(page) {
-        for (let pageElement of this.pages) {
+        for (let pageElement of navService.pages) {
             pageElement.style.display = "none"
         }
         page.style.display = "block"
@@ -27,7 +27,7 @@ let navService = {
     registerNavListeners: function() {
         for (let i = 0; i < this.navItems.length; i++) {
             this.navItems[i].addEventListener("click", function() {
-                navService.activateItem(this)
+                navService.activateItem(navService.navItems[i])
                 navService.showPage(navService.pages[i])
             })
         }
@@ -105,9 +105,8 @@ let weatherService = {
         let data = await fetch(`${this.apiUrl}?q=${this.city()}&units=metric&appid=${this.apiKey}`)
         await navService.loaderOnOff()
         let response = await data.json()
-        
-        await uiService.loadHourlyTable(response);
         await uiService.loadStatistics(response);
+        await uiService.loadHourlyTable(response);
         await uiService.loadMap(response);
         await navService.loaderOnOff()
         navService.tempSort.addEventListener(`click` ,function(){
@@ -265,4 +264,5 @@ let helperService = {
 }
 
 
-navService.registerNavListeners()
+document.onload = navService.registerNavListeners();
+
