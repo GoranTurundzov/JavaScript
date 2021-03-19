@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Coin Denominator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Coin Denominator</h1> 
+        <h3>Optimise Coin Use</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <button id="calculateBtn">Calculates</button>
+            </div>
+            <div class="col-md-4">
+                <input type="text" placeholder="How much money?"  id="howMuch">
+            </div>
+            <div class="col-md-4">
+                <button id="calculateBtnChange">Calculate</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">This button calculates the least <br>coins needed for the sum entered</div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">This button calculates coins needed <br>from a fixed amount of coins</div>
+        </div>
+        <div class="row results">
+            <div id="resultCalculate" class="col-md-4 result"> </div>
+            <div class="col-md-4"></div>
+            <div id="resultChange" class="col-md-4 result"></div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

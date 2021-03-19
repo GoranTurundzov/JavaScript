@@ -105,6 +105,7 @@ let weatherService = {
         let data = await fetch(`${this.apiUrl}?q=${this.city()}&units=metric&appid=${this.apiKey}`)
         await navService.loaderOnOff()
         let response = await data.json()
+        console.log(response)
         await uiService.loadStatistics(response);
         await uiService.loadHourlyTable(response);
         await uiService.loadMap(response);

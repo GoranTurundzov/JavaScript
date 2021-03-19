@@ -1,0 +1,17 @@
+.results{
+    border-top: 3px solid black;
+    color: black;
+}
+.result{
+    height: 140px;
+    border: 1px dotted gray;
+    background-color: rgba(236, 243, 236, 0.857);
+}
+body{
+    background-image: url("./img/background.jfif");
+    color: rgb(16, 4, 72);
+    }
+.container{
+    background-color: rgba(145, 151, 145, 0.755);
+    text-align: center;
+}

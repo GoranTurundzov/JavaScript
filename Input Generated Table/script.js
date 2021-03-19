@@ -9,7 +9,7 @@ btn.addEventListener('click' , createTable);
 
 
 function createTable(){
-    table.innerHTML += `<tr> <th colspan="${columns.value}">JavaScript Generated Table</th></tr>`;
+    table.innerHTML = `<tr> <th colspan="${columns.value}">JavaScript Generated Table</th></tr>`;
     for(let i = 1; i <= rows.value; i++){
         table.innerHTML += "</tr>";
         let tds = "";
