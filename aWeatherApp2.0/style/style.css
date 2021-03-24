@@ -1,0 +1,130 @@
+body{
+    
+    background-image: url(../img/BACKGROUND.png);
+    background-size: cover;
+    color: beige;
+}
+body > * > div{
+    border-radius:20px;
+    margin: 1px;
+    background-color: rgba(233, 227, 238, 0.104);
+    color: beige;
+}
+nav {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 10px;
+}
+
+#container {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   
+}
+#container > div {
+    width: 27%;
+    height: 30vh;
+    padding: 5%;
+}
+#buttonDiv {
+    display: flex;
+    overflow-y: auto;
+    height: 30vh;
+    min-width: 94%;
+}
+button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    text-align: center;
+}
+button > * {
+    font-size: 0.5rem;
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+button > h4 {
+    font-size: 0.7rem;
+    font-weight: 650;
+}
+
+.statusBtn{
+    
+    color: rgb(17, 17, 163);
+    position: relative;
+    margin-left: 9px;
+    background-color: rgba(253, 195, 5, 0.378);
+    line-height: 13px;
+    border: 0;
+}
+.statusBtn:hover{
+    background-color: rgb(20, 158, 112);
+}
+
+#cityName{
+    margin-right: 27%;
+}
+
+.timeDate {
+    font-size: 0.5rem;
+    font-weight: 800;
+}
+
+#picture{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+#picture > img {
+    z-index: -1;
+    position: relative;
+    
+    width: 35%;
+}
+#picture > div {
+    text-align: center;
+    color: rgb(7, 5, 7);
+    font-weight: 800;
+}
+.mainTemp {
+    font-size: 3rem;
+    margin-bottom: -25px;
+    color: yellowgreen;
+
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;           
+    z-index: -5;
+    opacity: 0.4;
+  }
+h1{
+    text-align: center;
+}
+
+.scrolldiv{
+    display: flex;
+    width: 100%;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+#searchBtn{
+    width: 75px;
+    border: 0;
+    text-align: center;
+    background-color: rgb(33, 110, 211);
+    color: white;
+}
+.description{
+    text-align: center;
+    margin: auto;
+    font-weight: 550;
+}
