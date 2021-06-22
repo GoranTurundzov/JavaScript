@@ -84,7 +84,7 @@ let onlyPalindrom = [];
      }
      return reversedString;
  }
- reverseString("ASD")
+console.log(reverseString(palindromArray))
  function onlyPalindromStrings(){
 
      for(let i = 0 ; i < palindromArray.length ; i++){

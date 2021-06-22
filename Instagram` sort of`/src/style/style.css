@@ -1,0 +1,252 @@
+body {
+    
+    background-color: black;
+    padding-right: 40px;
+    padding-left: 40px;
+    font-size: smaller;
+  
+}
+.content{
+    width: 90vw;
+    height: 100vh;
+    padding-top: 2vh;
+    background-color: white;
+    overflow: scroll;
+}
+.grid-container{
+    
+    min-height: 93vh;
+    padding-left: 2.5vw;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
+    grid-column-gap: 1.5vw;
+    grid-row-gap: 1.5vw;
+    grid-auto-rows: 450px;
+    
+    overflow: scroll;
+    
+    
+}
+.card{
+   
+    background-color: rgb(248, 247, 247);
+    overflow: hidden;
+    grid-template-rows: 15% 55% 25% 10%;
+    grid-row-gap: 0;
+  
+}
+p{
+    margin: 0;
+}
+
+.card-title{
+    height: 35px;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+}
+.card-info{
+    margin-left: 7px;
+}
+.card-image{
+    
+    padding: 3%;
+}
+.profileImage{
+    padding-top: 5%;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.card-main-image{
+    display: flex;
+    background-color: rgb(242, 242, 242);;
+    justify-content: center;
+    height: 100%; 
+   
+    
+    
+}
+.main-image{
+    position: relative;
+    object-fit: contain;
+    width: 100%;
+    height: 300px;
+   
+
+
+    
+}
+.card-info{
+  text-align: left;
+  
+}
+.card-description{
+    height:100%;
+    overflow: scroll;
+    
+}
+
+*::-webkit-scrollbar {
+    display: none;
+  }
+.card-source{
+    text-align: center;
+    padding-top: 15%;
+}
+.loadButtonDiv{
+    text-align: center;
+    background-color: white;
+}
+.loadButton{
+    background-color: rgb(13, 134, 240);
+    color: white;
+    border-color: rgb(2, 117, 216);
+    border-radius: 7%;
+    height: 5vh;
+    width: 10vw;
+}
+.popup{
+    position: absolute;
+    display: none;
+    padding: 5vh;
+    z-index: 1;
+    top: 15vh;
+    left: 10vw;
+    float: left;
+    background-color: rgba(131, 131, 131, 0.892);
+    text-shadow: 1px 1px 0 #000;
+    max-height: 70vh;
+    max-width: 80vw;
+    
+    
+    
+    
+}
+.popupImageDiv{
+    
+    height: 60vh;
+    overflow: scroll;
+    
+    
+}
+.popUp-Image{
+    max-width: 40vw;
+    
+}
+.popupDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.popup-Info{
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+}
+.popupTitle{
+    float: left;
+}
+.popupProfile{
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.popup-caption{
+    display: flex;
+    padding: 0 5vw;
+}
+.popup-likes{
+    padding-left: 5vw;
+}
+.escBtn{
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    border: 0;
+    background-color: transparent;
+    color: rgb(22, 22, 22);
+    text-shadow: 1px 1px 0 rgb(255, 255, 255);
+    font-weight: bolder;
+}
+@media only screen and (max-width: 992px){
+    .grid-container{
+        width: 90vw;
+        display: grid;
+        grid-template-columns: 42.5vw 42.5vw;
+       
+    }
+    .loadButton{
+        width: 18vw;
+    }
+    .popup{
+        min-width: 100vw;
+        margin-left: -10%;
+        min-height: 80vh;
+
+    }
+    .popup-caption{
+        max-height: 20vh;
+        overflow: scroll;
+        margin-top: 30vh;
+        margin-left: -80vw;
+        z-index: 2;
+        color: white;
+        text-shadow: 1px 1px 0 #000;
+    }
+    .popup-likes{
+        margin-left: -80vw;
+        z-index: 2;
+    }
+    .popupImageDiv{
+        min-width: 80vw;
+    }
+    .popUp-Image{
+        margin-top: 20vh;
+        min-width: 100vw;
+        margin-left: 10vw;
+        
+    }
+    .popupProfile{
+        width: 12vw;
+        height: 12vw;
+    }
+    .popup-Info{
+        margin-left: -80vw;
+        min-width: 80vw;
+        z-index: 2;
+        color: white;
+        font-size: 1vh;
+    }
+    h3{
+        font-size: 4vh;
+        text-shadow: 1px 1px 0 #000;
+    }
+    h4{
+        font-size: 2vh;
+        text-shadow: 1px 1px 0 #000
+    }
+   
+   
+}
+@media only screen and (max-width: 768px){
+    .grid-container{
+        padding: 0 10vw 0 10vw;
+        display: grid;
+        grid-template-columns: 100%;
+        margin: 0;
+       
+    }
+    .loadButton{
+        width: 18vw;
+    }
+    .popUp-Image{
+        position: absolute;
+        margin-top: 20vh;
+        min-width: 80vw;
+        left: 0;
+    
+        
+    }
+}
